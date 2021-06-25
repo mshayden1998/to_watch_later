@@ -1,3 +1,7 @@
+/*
+@author "Marcelo Silveira Hayden"
+*/
+/* GENERAL */
 body {
     margin: 8px auto;
     width: 50%;
@@ -21,6 +25,7 @@ button {
 button:hover {
     background-color: palevioletred;
 }
+/* PRIMARY */
 .media_card {
     margin: 4px 0;
     padding: 12px;

@@ -2,31 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Marcelo Silveira Hayden">
     <title>To Watch Later</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-glyphs/30/000000/clock--v3.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>To Watch Later</h1>
+        <p>Your personal Watch List.</p>
     </header>
     <div id="the_list"></div>
     <button onclick="toAdd()">Add</button>
+    <footer>
+        <a href="https://icons8.com/icon/61044/relógio">Relógio icon by Icons8.</a>
+    </footer>
 </body>
 <script>
+    // Variables
     var the_list = document.getElementById('the_list')
+    var user_media_items = []
 
-    function toAdd() { // Esta função irá pedir ao usuário as informações necessárias para criar um elemento na lista
+    // This function is gonna ask the user the informations needed to creat an element for the list
+    // Esta função irá pedir ao usuário as informações necessárias para criar um elemento na lista
+    function toAdd() {
         // Pede o título. Se não houver, não adicionará nada.
-        var tmp_title = prompt("Título:")
+        var tmp_title = prompt("Title:")
         if (tmp_title != '') {
             // Adiciona o título ao DOM
             the_list.innerHTML += '<div class="media_card"><h2>' + tmp_title + '</h2></div>'
             // Pede o link
-            var tmp_link = prompt("Link para assistir:")
+            var tmp_link = prompt("A link:")
             if (tmp_link != '' && tmp_link != null) {
                 the_list.firstChild.innerHTML += '<a href=' + tmp_link + '>Assistir em www.site.com</a>'
             } else {
-                the_list.firstChild.innerHTML += 'Sem link por enquanto.'
+                the_list.firstChild.innerHTML += 'There is no link yet.'
             }
             // Pede por tags
             var tmp_tags = prompt('Tags?')
@@ -34,13 +44,13 @@
                 the_list.firstChild.innerHTML += '<div class="tags">' + tmp_tags + '</div>'
             }
             // Pede por notas
-            var tmp_notes = prompt('Alguma observação?')
+            var tmp_notes = prompt('Any notes?')
             if (tmp_notes != '' && tmp_notes != null) {
                 the_list.firstChild.innerHTML += '<p class="note">' + tmp_notes + '</p>'
             }
             the_list.firstChild.innerHTML += '<div class="buttons"><button onclick="toExclude()">Exclude</button></div>'
         } else {
-            console.log('Nada adicionado.')
+            console.log('Nothing added.')
         }
     }
 
