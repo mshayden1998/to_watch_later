@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Watch Later</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>To Watch Later</h1>
+    </header>
+    <div id="the_list"></div>
+    <button onclick="toAdd()">Add</button>
+</body>
+<script>
+    var the_list = document.getElementById('the_list')
+
+    function toAdd() { // Esta função irá pedir ao usuário as informações necessárias para criar um elemento na lista
+        // Pede o título. Se não houver, não adicionará nada.
+        var tmp_title = prompt("Título:")
+        if (tmp_title != '') {
+            // Adiciona o título ao DOM
+            the_list.innerHTML += '<div class="media_card"><h2>' + tmp_title + '</h2></div>'
+            // Pede o link
+            var tmp_link = prompt("Link para assistir:")
+            if (tmp_link != '' && tmp_link != null) {
+                the_list.firstChild.innerHTML += '<a href=' + tmp_link + '>Assistir em www.site.com</a>'
+            } else {
+                the_list.firstChild.innerHTML += 'Sem link por enquanto.'
+            }
+            // Pede por tags
+            var tmp_tags = prompt('Tags?')
+            if (tmp_tags != '' && tmp_tags != null) {
+                the_list.firstChild.innerHTML += '<div class="tags">' + tmp_tags + '</div>'
+            }
+            // Pede por notas
+            var tmp_notes = prompt('Alguma observação?')
+            if (tmp_notes != '' && tmp_notes != null) {
+                the_list.firstChild.innerHTML += '<p class="note">' + tmp_notes + '</p>'
+            }
+            the_list.firstChild.innerHTML += '<div class="buttons"><button onclick="toExclude()">Exclude</button></div>'
+        } else {
+            console.log('Nada adicionado.')
+        }
+    }
+
+    function undoMessageBox() {
+        console.log('Undo?')
+    }
+    function toExclude() {
+        console.log('Excluded')
+        undoMessageBox()
+    }
+</script>
+</html>

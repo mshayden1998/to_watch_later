@@ -1,0 +1,41 @@
+body {
+    margin: 8px auto;
+    width: 50%;
+    background-color: #e9e9e9;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+a {
+    color: #000;
+}
+a:hover {
+    color: dodgerblue;
+}
+h2 {
+    margin: 0;
+}
+button {
+    padding: 8px;
+    border: 1px solid palevioletred;
+    min-width: 80px;
+}
+button:hover {
+    background-color: palevioletred;
+}
+.media_card {
+    margin: 4px 0;
+    padding: 12px;
+    border-bottom: 1px solid lightgray;
+    font-family: 'Courier New', Courier, monospace;
+}
+.media_card:hover {
+    background-color: lightgray;
+}
+.media_card .tags::before {
+    content: 'Tags: ';
+}
+:is(.media_card) .tags span, .note {
+    font-style: italic;
+}
+.media_card .buttons {
+    text-align: right;
+}
