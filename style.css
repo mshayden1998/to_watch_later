@@ -41,6 +41,9 @@ button:hover {
 :is(.media_card) .tags span, .note {
     font-style: italic;
 }
+.media_card .note::before {
+    content: 'Note: ';
+}
 .media_card .buttons {
     text-align: right;
 }
